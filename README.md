@@ -27,10 +27,10 @@
 Открой терминал (Windows: PowerShell или Терминал; macOS/Linux: Terminal). Введи:
 
 ```bash
-ssh root@<ip-твоего-сервера>
+ssh root@193.22.244.194
 ```
 
-Замени `<ip-твоего-сервера>` на реальный IP из письма хостера. Введи пароль когда спросит.
+**Замени `193.22.244.194` на реальный IP твоего сервера** (он в письме от хостера). Угловые скобки не нужны. Введи пароль когда спросит — буквы при вводе не отображаются, это норма.
 
 ### 1.2. Запусти установку — 3 команды по очереди
 
@@ -131,23 +131,31 @@ sudo amneziawg-add-peer my-laptop
 
 ### 3.2. На своём компьютере — скачай этот файл
 
-Открой **новое окно терминала на своём компе** (не в SSH-сессии VPS!):
+⚠️ **Это делается НЕ на сервере, а на твоём компе.** Открой новое окно терминала на своём компе. Если ты сейчас в SSH-сессии (промпт `root@...:~#`), сначала выйди:
+
+```bash
+exit
+```
+
+Промпт должен стать `PS C:\Users\<юзер>>` (Windows) или `<юзер>@MacBook ~ %` (macOS) — это значит ты на своём компе.
 
 **Windows (PowerShell):**
 
 ```powershell
-scp root@<ip-сервера>:/root/vpn-clients/my-laptop.conf $env:USERPROFILE\Downloads\
+scp root@193.22.244.194:/root/vpn-clients/my-laptop.conf $env:USERPROFILE\Downloads\
 ```
 
-Файл появится в `C:\Users\<твой-юзер>\Downloads\my-laptop.conf`.
+**Замени `193.22.244.194` на IP своего сервера** (без угловых скобок). Файл появится в `C:\Users\<твой-юзер>\Downloads\my-laptop.conf`.
 
 > **Без командной строки (Windows):** поставь [WinSCP](https://winscp.net/eng/download.php), подключись к серверу (IP, логин `root`, пароль), зайди в папку `/root/vpn-clients/`, перетащи `my-laptop.conf` на свой рабочий стол.
 
 **macOS / Linux:**
 
 ```bash
-scp root@<ip-сервера>:/root/vpn-clients/my-laptop.conf ~/Downloads/
+scp root@193.22.244.194:/root/vpn-clients/my-laptop.conf ~/Downloads/
 ```
+
+(IP замени на свой.)
 
 ### 3.3. Импортируй в приложение
 
@@ -167,7 +175,7 @@ scp root@<ip-сервера>:/root/vpn-clients/my-laptop.conf ~/Downloads/
 | Удалить устройство | `sudo amneziawg-remove-peer <имя>` |
 | Кто подключён сейчас | `sudo awg show` |
 | Показать QR заново | `qrencode -t ansiutf8 < /root/vpn-clients/<имя>.conf` |
-| Скачать конфиг на свой комп (с локального компа) | `scp root@<ip>:/root/vpn-clients/<имя>.conf ~/Downloads/` |
+| Скачать конфиг на свой комп (выполнять на локальном компе!) | `scp root@<IP-сервера>:/root/vpn-clients/<имя>.conf ~/Downloads/` (замени `<IP-сервера>` и `<имя>` на свои, скобки убери) |
 | Обновить скрипты | `cd ~/amneziawg-quickstart && git pull` |
 | Удалить весь VPN | `sudo bash amneziawg-quickstart/uninstall.sh` |
 
@@ -208,6 +216,11 @@ sudo amneziawg-add-peer my-laptop
 - Показать QR: `qrencode -t ansiutf8 < /root/vpn-clients/my-phone.conf`
 - Посмотреть текст: `cat /root/vpn-clients/my-phone.conf`
 - Скачать на свой комп: команда `scp` с локального компа (см. Шаг 3.2)
+
+**«Ввёл scp в терминале, ничего не качается / ругается на команду»**
+Две частые причины:
+1. Ты ввёл команду **внутри SSH-сессии VPS** (промпт `root@что-то:~#`), а нужно — **на своём компе** в новом окне PowerShell/Terminal (промпт `PS C:\Users\...>` или `user@MacBook ~ %`). Выйди из SSH: `exit`.
+2. Ты оставил **угловые скобки** в команде: `root@<193.22.244.194>` вместо `root@193.22.244.194`. Скобки `<>` в инструкции означают «вставь сюда своё значение», их нужно убрать.
 
 **«Установил, подключился, но 2ip.ru показывает родной IP»**
 Туннель есть, но трафик идёт мимо. На клиенте не активирован full-tunnel. Проверь что в `.conf` стоит `AllowedIPs = 0.0.0.0/0` (а не `10.9.0.0/24`).
