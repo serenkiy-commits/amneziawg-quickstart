@@ -9,12 +9,12 @@
 | `01-vps-credentials.png` | Письмо от хостера или панель управления с IP, логином, паролем (закрась пароль перед публикацией!) |
 | `02-windows-powershell-start.png` | Меню Пуск Windows с найденным PowerShell |
 | `03-install-success.png` | Окно PowerShell/Terminal с QR-кодом и блоком «✓ Готово» после `install.sh` |
-| `04-amneziavpn-app-icon.png` | Иконка AmneziaVPN в App Store / Google Play |
-| `05-amneziavpn-scan-qr.png` | Экран приложения с кнопкой «Сканировать QR-код» |
-| `06-amneziavpn-connected.png` | Экран приложения в состоянии «Подключено» (зелёный индикатор) |
+| `04-amneziawg-app-icon.png` | Иконка AmneziaWG в App Store / Google Play |
+| `05-amneziawg-scan-qr.png` | Экран приложения с кнопкой «Сканировать QR-код» |
+| `06-amneziawg-connected.png` | Экран приложения в состоянии «Подключено» (зелёный индикатор) |
 | `07-windows-scp-success.png` | PowerShell с успешным выводом `scp` (`100%   1.2KB`) |
 | `08-winscp-drag.png` | Окно WinSCP с двумя панелями, выделен файл `my-laptop.conf` справа |
-| `09-amneziavpn-desktop-import.png` | Десктоп AmneziaVPN с диалогом импорта .conf |
+| `09-amneziawg-desktop-import.png` | Десктоп AmneziaWG с диалогом импорта .conf |
 | `10-2ip-success.png` | Браузер с открытым 2ip.ru, показывающий IP сервера (не родной) |
 
 ## Правила безопасности при скриншотах
