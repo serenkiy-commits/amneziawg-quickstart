@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # AmneziaWG Quickstart — install.sh
-# https://github.com/<your-org>/amneziawg-quickstart
+# https://github.com/serenkiy-commits/amneziawg-quickstart
 #
 # Поднимает сервер AmneziaWG на свежем Ubuntu/Debian VPS за ~2 минуты.
 # AmneziaWG — это WireGuard + обфускация (Jc/S1/H1), которая обходит DPI там,

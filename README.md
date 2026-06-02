@@ -27,7 +27,7 @@
 
 ```bash
 apt update && apt install -y git
-git clone https://github.com/<your-org>/amneziawg-quickstart.git
+git clone https://github.com/serenkiy-commits/amneziawg-quickstart.git
 sudo bash amneziawg-quickstart/install.sh
 ```
 
