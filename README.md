@@ -18,6 +18,20 @@
 - Поддержка iPhone, Android, Windows, macOS, Linux.
 - Управление 1 командой: `sudo amneziawg-add-peer <имя>` для нового устройства.
 
+## 📥 Какое приложение качать на устройство
+
+⚠️ **ВАЖНО:** для подключения к этому VPN нужно скачать именно **AmneziaVPN** (приложение, которое поддерживает протокол AmneziaWG). **Не WireGuard, не OpenVPN, не другой VPN-клиент** — они не понимают обфускацию AmneziaWG и не подключатся.
+
+| Устройство | Приложение | Где скачать |
+|------------|-----------|-------------|
+| 📱 iPhone | **AmneziaVPN** | [App Store](https://apps.apple.com/app/amneziavpn/id1600529900) |
+| 📱 Android | **AmneziaVPN** | [Google Play](https://play.google.com/store/apps/details?id=org.amnezia.vpn) |
+| 💻 Windows | **AmneziaVPN** | <https://amnezia.org/downloads> |
+| 💻 macOS | **AmneziaVPN** | <https://amnezia.org/downloads> |
+| 💻 Linux | **AmneziaVPN** | <https://amnezia.org/downloads> |
+
+Иконка приложения — буква **«A»** на голубом фоне. **НЕ зелёный дракон** (это обычный WireGuard, он не подойдёт).
+
 ## Что понадобится
 
 1. **VPS на Ubuntu 22.04 или 24.04.** Самый дешёвый: 1 CPU / 1 GB RAM / 10 GB. Хостеры: Hetzner (~$4/мес), Aeza, FirstByte.
@@ -102,9 +116,7 @@ sudo bash amneziawg-quickstart/install.sh
 
 Это самый быстрый путь. На телефоне:
 
-1. **Поставь приложение AmneziaVPN:**
-   - iPhone: [App Store](https://apps.apple.com/app/amneziavpn/id1600529900)
-   - Android: [Google Play](https://play.google.com/store/apps/details?id=org.amnezia.vpn)
+1. **Поставь приложение AmneziaVPN** (см. таблицу выше). Это единственное приложение, которое поддерживает AmneziaWG — обычный WireGuard НЕ подойдёт.
 2. Открой → нажми **«+»** (или «Добавить») → выбери **«Сканировать QR-код»**.
 3. Наведи камеру телефона на QR-код, который скрипт нарисовал в окне терминала на компьютере.
 4. Нажми **«Подключить»**.
@@ -165,11 +177,11 @@ scp root@193.22.244.194:/root/vpn-clients/my-laptop.conf ~/Downloads/
 
 ### 3.3. Импортируй в приложение
 
-1. Скачай **AmneziaVPN** для своей системы: <https://amnezia.org/downloads>
-2. Открой → **«Импорт конфигурации»** → выбери `my-laptop.conf` из Downloads.
+1. Если ещё не скачал — поставь **AmneziaVPN** для своей ОС: <https://amnezia.org/downloads>
+2. Открой → **«Импорт конфигурации»** → **«Из файла .conf»** → выбери `my-laptop.conf` из Downloads.
 3. Нажми **«Подключить»**.
 
-> ⚠️ **Только AmneziaVPN.** Обычный WireGuard (от wireguard.com) **не подойдёт** — он не понимает обфускацию. Иконки похожи, не перепутай.
+> ⚠️ **Качай только AmneziaVPN** (буква «A» на голубом фоне). Обычный WireGuard (зелёный дракон, от wireguard.com) **не подойдёт** — он не понимает обфускацию AmneziaWG. Иконки разные, но клиенты часто путают.
 
 ---
 

@@ -26,13 +26,31 @@
 
 **VPS** — это арендованный компьютер в дата-центре, на который мы поставим VPN-сервер. Стоит примерно $4-5/мес.
 
-**AmneziaWG** — это технология VPN. Она маскирует трафик так, что блокировщики (DPI) не видят что это VPN, и пропускают. В РФ обычные VPN часто блокируют — AmneziaWG обходит.
+**AmneziaWG** — это технология VPN (протокол). Она маскирует трафик так, что блокировщики (DPI) не видят что это VPN, и пропускают. В РФ обычные VPN часто блокируют — AmneziaWG обходит.
+
+**AmneziaVPN** — это приложение-клиент для подключения к AmneziaWG-серверу. Скачивается на твоё устройство (телефон / компьютер). Бесплатное.
+
+⚠️ **Не путать с обычным WireGuard:** WireGuard — это другой протокол, его клиент к нашему серверу подключиться не сможет. Качай только **AmneziaVPN**.
 
 Что мы будем делать:
 1. Купим VPS (5 минут).
 2. Поставим на него скрипт одной командой (1 минута).
-3. Подключим телефон (1 минута через QR-код).
-4. Подключим компьютер (3 минуты).
+3. Скачаем приложение **AmneziaVPN** на устройство.
+4. Подключим телефон (1 минута через QR-код).
+5. Подключим компьютер (3 минуты).
+
+### 📥 Где скачать AmneziaVPN на устройство
+
+Запомни эту таблицу — будем использовать в шагах 5 и 6:
+
+| Устройство | Где скачать AmneziaVPN |
+|------------|-----------------------|
+| 📱 iPhone | [App Store](https://apps.apple.com/app/amneziavpn/id1600529900) |
+| 📱 Android | [Google Play](https://play.google.com/store/apps/details?id=org.amnezia.vpn) |
+| 💻 Windows / macOS / Linux | <https://amnezia.org/downloads> |
+
+Иконка приложения — буква **«A»** на голубом/синем фоне.
+⚠️ **НЕ скачивай:** WireGuard (зелёный дракон), OpenVPN, NordVPN, ExpressVPN — они не подключатся к нашему серверу.
 
 ---
 
@@ -249,10 +267,12 @@ UDP-порт для VPN: число от 1 до 65535 [443]:
 
 ### 5.1. Поставь приложение AmneziaVPN
 
-⚠️ Именно **AmneziaVPN**, не «WireGuard» (он не подойдёт).
+⚠️ Именно **AmneziaVPN**, не «WireGuard» (он не подойдёт). Иконка — буква «A» на голубом фоне.
 
-- iPhone: [App Store](https://apps.apple.com/app/amneziavpn/id1600529900)
-- Android: [Google Play](https://play.google.com/store/apps/details?id=org.amnezia.vpn)
+- 📱 iPhone: [App Store → AmneziaVPN](https://apps.apple.com/app/amneziavpn/id1600529900)
+- 📱 Android: [Google Play → AmneziaVPN](https://play.google.com/store/apps/details?id=org.amnezia.vpn)
+
+Если попадается в магазине несколько приложений с похожим названием — проверь разработчика, должен быть **AmneziaVPN** или **Privacy Accelerator**.
 
 > ![Скрин: иконка AmneziaVPN в App Store / Google Play](docs/screenshots/04-amneziavpn-app-icon.png)
 
@@ -356,7 +376,9 @@ scp root@193.22.244.194:/root/vpn-clients/my-laptop.conf ~/Downloads/
 
 ### 6.5. Поставь AmneziaVPN на компьютер
 
-<https://amnezia.org/downloads> — скачай версию для Windows / macOS / Linux.
+Открой <https://amnezia.org/downloads> → выбери свою ОС → скачай **AmneziaVPN** (большая синяя кнопка). Установи как обычное приложение.
+
+⚠️ Только **AmneziaVPN** с amnezia.org. Не качай WireGuard с wireguard.com — это другое приложение, оно не подключится к нашему серверу.
 
 ### 6.6. Импортируй конфиг
 
